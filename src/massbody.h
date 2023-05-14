@@ -2,6 +2,7 @@
 #include <math.h>
 #include <stdbool.h>
 
+// Allocates 32 bytes of memory
 typedef struct Struct_MassBody {
 	double Mass;
 	double Acceleration;
@@ -14,6 +15,27 @@ bool printMassBody(MassBody *Instance) {
 	printf("%f%s\n", Instance->Acceleration, " | Acceleration");
 	printf("%f%s\n", Instance->PosX, " | PosX");
 	printf("%f%s\n", Instance->PosY, " | PosY");
+	return true;
+};
+
+bool arrayInputTest(double *doubleArray) {
+	return true;
+};
+
+bool fillRelativeDistArray(double *RelativeDistArray, MassBody *MassBodyArray, int sizeMBArray) {
+
+	for (int i = 0; i < sizeMBArray; i++) {
+
+		MassBody MBInstance = MassBodyArray[i];
+		RelativeDistArray[i][0] = 0.0;
+
+		for (int j = 1; j < sizeMBArray; j++) {
+
+			double distanceValue = getPointDistance(&MBInstance, &MassBodyArray[j]);
+			RelativeDistArray[i][j] = distanceValue;
+		}
+	}
+
 	return true;
 };
 

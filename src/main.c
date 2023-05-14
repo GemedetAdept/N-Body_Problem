@@ -12,27 +12,26 @@ void main() {
 	double force, massA, massB, center_dist, accelMassA, accelMassB, barycenter;
 
 	int bodyCount = 2;
-	MassBody MassBodyArray[bodyCount-1];
+	MassBody MassBodyArray[bodyCount];
+	int sizeMBArray = sizeof(MassBodyArray)/32;
 	double RelativePointDists[bodyCount][bodyCount];
 
-	
+	// massA = 500.0;
+	// massB = 200.0;
+	// center_dist = 1.0;
 
-	massA = 500.0;
-	massB = 200.0;
-	center_dist = 1.0;
+	// force = getGravitation(gravitational_constant, massA, massB, center_dist);
+	// accelMassA = getAcceleration(force, massA);
+	// accelMassB = getAcceleration(force, massB);
+	// barycenter = getBarycenter(massA, massB, center_dist);
 
-	force = getGravitation(gravitational_constant, massA, massB, center_dist);
-	accelMassA = getAcceleration(force, massA);
-	accelMassB = getAcceleration(force, massB);
-	barycenter = getBarycenter(massA, massB, center_dist);
+	// printf("%s\n\n", "|| Newton's Law of Universal Gravitation ||");
 
-	printf("%s\n\n", "|| Newton's Law of Universal Gravitation ||");
-
-	printParameters(massA, massB, center_dist);
-	printBarycenters(center_dist, barycenter);
-	printForce(force);
-	printAcceleration(accelMassA, accelMassB);
-	fflush(stdout);
+	// printParameters(massA, massB, center_dist);
+	// printBarycenters(center_dist, barycenter);
+	// printForce(force);
+	// printAcceleration(accelMassA, accelMassB);
+	// fflush(stdout);
 
 	MassBody bodyA = {500.0, 0.0, 1.0, 1.0};
 	MassBody bodyB = {200.0, 0.0, 5.0, 7.0};
@@ -42,7 +41,10 @@ void main() {
 
 	double pointDist = getPointDistance(&bodyA, &bodyB);
 	printf("%f%s\n", pointDist, " | Dist between bodyA & bodyB");
-	printMassBody(&bodyA);
+
+	fillRelativeDistArray((double *)RelativePointDists, MassBodyArray, sizeMBArray);
+
+	printMassBody(&MassBodyArray[0]);
 	printMassBody(&MassBodyArray[1]);
 	fflush(stdout);
 }
