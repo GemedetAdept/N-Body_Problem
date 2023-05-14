@@ -12,7 +12,10 @@ void main() {
 	double force, massA, massB, center_dist, accelMassA, accelMassB, barycenter;
 
 	int bodyCount = 2;
-	MassBody MassBodyArray[bodyCount];
+	MassBody MassBodyArray[bodyCount-1];
+	double RelativePointDists[bodyCount][bodyCount];
+
+	
 
 	massA = 500.0;
 	massB = 200.0;
@@ -34,8 +37,8 @@ void main() {
 	MassBody bodyA = {500.0, 0.0, 1.0, 1.0};
 	MassBody bodyB = {200.0, 0.0, 5.0, 7.0};
 
-	MassBodyArray[1] = bodyA;
-	MassBodyArray[2] = bodyB;
+	MassBodyArray[0] = bodyA;
+	MassBodyArray[1] = bodyB;
 
 	double pointDist = getPointDistance(&bodyA, &bodyB);
 	printf("%f%s\n", pointDist, " | Dist between bodyA & bodyB");
