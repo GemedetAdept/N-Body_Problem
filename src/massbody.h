@@ -10,6 +10,20 @@ typedef struct Struct_MassBody {
 	double PosY;
 } MassBody;
 
+struct {
+	enum {isLength, isMassBody} type;
+	union {
+		int length;
+		MassBody body;
+	} value;
+} BodyArray[10];
+
+bool MassBodyFactory(int bodyCount, MassBody *MassBodyArray) {
+
+	
+
+};
+
 bool printMassBody(MassBody *Instance) {
 	printf("%f%s\n", Instance->Mass, " | Mass");
 	printf("%f%s\n", Instance->Acceleration, " | Acceleration");
@@ -22,22 +36,22 @@ bool arrayInputTest(double *doubleArray) {
 	return true;
 };
 
-bool fillRelativeDistArray(double *RelativeDistArray, MassBody *MassBodyArray, int sizeMBArray) {
+// bool fillRelativeDistArray(double *RelativeDistArray, MassBody *MassBodyArray, int sizeMBArray) {
 
-	for (int i = 0; i < sizeMBArray; i++) {
+// 	for (int i = 0; i < sizeMBArray; i++) {
 
-		MassBody MBInstance = MassBodyArray[i];
-		RelativeDistArray[i][0] = 0.0;
+// 		MassBody MBInstance = MassBodyArray[i];
+// 		RelativeDistArray[i][0] = 0.0;
 
-		for (int j = 1; j < sizeMBArray; j++) {
+// 		for (int j = 1; j < sizeMBArray; j++) {
 
-			double distanceValue = getPointDistance(&MBInstance, &MassBodyArray[j]);
-			RelativeDistArray[i][j] = distanceValue;
-		}
-	}
+// 			double distanceValue = getPointDistance(&MBInstance, &MassBodyArray[j]);
+// 			RelativeDistArray[i][j] = distanceValue;
+// 		}
+// 	}
 
-	return true;
-};
+// 	return true;
+// };
 
 double getPointDistance(MassBody *BodyA, MassBody *BodyB) {
 

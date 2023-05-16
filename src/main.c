@@ -42,9 +42,17 @@ void main() {
 	double pointDist = getPointDistance(&bodyA, &bodyB);
 	printf("%f%s\n", pointDist, " | Dist between bodyA & bodyB");
 
-	fillRelativeDistArray((double *)RelativePointDists, MassBodyArray, sizeMBArray);
+	// fillRelativeDistArray((double *)RelativePointDists, MassBodyArray, sizeMBArray);
 
 	printMassBody(&MassBodyArray[0]);
 	printMassBody(&MassBodyArray[1]);
 	fflush(stdout);
+
+	// -------------------------------------------------------------------------------
+
+	BodyArray[0].type = isLength;
+	BodyArray[0].value.length = 9;
+
+	BodyArray[1].type = isMassBody;
+	BodyArray[1].value.body = bodyA;
 }
