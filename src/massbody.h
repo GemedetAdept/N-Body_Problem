@@ -11,16 +11,17 @@ typedef struct Struct_MassBody {
 } MassBody;
 
 struct {
-	enum {isLength, isMassBody} type;
+	enum {isLength, isMassBody} Type;
 	union {
-		int length;
-		MassBody body;
-	} value;
+		int Length;
+		int BodyNumber;
+		MassBody Body;
+	} Value;
 } BodyArray[10];
 
 bool MassBodyFactory(int bodyCount, MassBody *MassBodyArray) {
 
-	
+	return true;
 
 };
 

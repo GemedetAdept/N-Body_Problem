@@ -12,6 +12,9 @@ void main() {
 	double force, massA, massB, center_dist, accelMassA, accelMassB, barycenter;
 
 	int bodyCount = 2;
+
+	
+	
 	MassBody MassBodyArray[bodyCount];
 	int sizeMBArray = sizeof(MassBodyArray)/32;
 	double RelativePointDists[bodyCount][bodyCount];
@@ -50,9 +53,17 @@ void main() {
 
 	// -------------------------------------------------------------------------------
 
-	BodyArray[0].type = isLength;
-	BodyArray[0].value.length = 9;
+	BodyArray[0].Type = isLength;
+	BodyArray[0].Value.Length = 9;
 
-	BodyArray[1].type = isMassBody;
-	BodyArray[1].value.body = bodyA;
+	BodyArray[1].Type = isMassBody;
+	BodyArray[1].Value.BodyNumber = 1;
+	BodyArray[1].Value.Body = bodyA;
+
+	BodyArray[2].Type = isMassBody;
+	BodyArray[2].Value.BodyNumber = 2;
+	BodyArray[2].Value.Body = bodyB;
+
+	printMassBody(&BodyArray[2].Value.Body);
+	fflush(stdout);
 }
