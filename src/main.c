@@ -40,7 +40,7 @@ void main() {
 	// printMassBody(&BodyArray[2].Value.Body);
 
 	for (int i = 1; i<=BodyArray[0].Value.Length; i++) {
-		printf("%s\n", " ");
+		printf("%s", " ");
 		printf("%d%s\n", i, ": ");
 		printMassBody(&BodyArray[i].Value.Body);
 		printf("%s\n", "");
